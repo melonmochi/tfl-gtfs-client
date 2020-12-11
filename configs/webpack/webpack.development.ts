@@ -25,6 +25,7 @@ const developmentConfig: webpack.Configuration = merge(common, {
     noInfo: true,
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['MAPBOX_GL_TOKEN']),
     new Dotenv() as webpack.WebpackPluginInstance,
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
