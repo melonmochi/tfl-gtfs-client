@@ -88,6 +88,7 @@ const commonConfig: webpack.Configuration = {
     },
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['MAPBOX_GL_TOKEN']),
     new MiniCssExtractPlugin() as webpack.WebpackPluginInstance,
     new HtmlWebpackPlugin({
       favicon: './public/favicon.ico',
