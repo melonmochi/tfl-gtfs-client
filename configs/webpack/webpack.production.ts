@@ -17,7 +17,7 @@ const productionConfig: webpack.Configuration = merge(common, {
   },
   devtool: 'cheap-module-source-map',
   plugins: [
-    new webpack.EnvironmentPlugin(['MAPBOX_GL_TOKEN']),
+    new webpack.EnvironmentPlugin({ MAPBOX_GL_TOKEN: '' }),
     new CleanWebpackPlugin(),
   ],
 });
