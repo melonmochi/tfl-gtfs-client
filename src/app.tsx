@@ -1,16 +1,10 @@
 import { FC, StrictMode } from 'react';
+import { Map } from './components';
 
-const App: FC = () => {
-  console.log(
-    'im process.env',
-    process.env.NODE_ENV,
-    process.env.MAPBOX_GL_TOKEN
-  );
-  return (
-    <StrictMode>
-      <div>{process.env.MAPBOX_GL_TOKEN}</div>
-    </StrictMode>
-  );
-};
+const App: FC = () => (
+  <StrictMode>
+    <Map />
+  </StrictMode>
+);
 
 export default App;
