@@ -16,7 +16,10 @@ const productionConfig: webpack.Configuration = merge(common, {
     ],
   },
   devtool: 'cheap-module-source-map',
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new webpack.EnvironmentPlugin(['MAPBOX_GL_TOKEN']),
+    new CleanWebpackPlugin(),
+  ],
 });
 
 export default productionConfig;
