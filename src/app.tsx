@@ -2,7 +2,7 @@ import { FC, StrictMode } from 'react';
 
 const App: FC = () => (
   <StrictMode>
-    <div>App</div>
+    <div>{process.env.MAPBOX_GL_TOKEN}</div>
   </StrictMode>
 );
 
