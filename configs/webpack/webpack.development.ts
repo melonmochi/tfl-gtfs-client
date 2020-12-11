@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 import common from './webpack.common';
 
 const developmentConfig: webpack.Configuration = merge(common, {
@@ -24,6 +25,7 @@ const developmentConfig: webpack.Configuration = merge(common, {
     noInfo: true,
   },
   plugins: [
+    new Dotenv() as webpack.WebpackPluginInstance,
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
   ],
