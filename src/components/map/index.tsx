@@ -1,5 +1,5 @@
-import mapboxgl from 'mapbox-gl';
 import { FC, useEffect, useRef, useState } from 'react';
+import mapboxgl from 'mapbox-gl';
 import './index.less';
 
 mapboxgl.accessToken = process.env.MAPBOX_GL_TOKEN || 'MAPBOX_ACCESS_TOKEN';
@@ -15,20 +15,22 @@ const Map: FC = () => {
 
   useEffect(() => {
     if (mapRef && mapRef.current) {
-      setMap(
-        new mapboxgl.Map({
-          container: mapRef.current,
-          style: 'mapbox://styles/mapbox/streets-v11',
-          center: [mapState.lng, mapState.lat],
-          zoom: mapState.zoom,
-        })
-      );
+      const map = new mapboxgl.Map({
+        container: mapRef.current,
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [mapState.lng, mapState.lat],
+        zoom: mapState.zoom,
+      });
+      map.on('load', () => {
+        map.resize();
+      });
+      setMap(map);
     }
   }, []);
 
   return (
-    <div>
-      <div className="mapContainer" ref={mapRef} />
+    <div className="mapContainer">
+      <div className="map" ref={mapRef} />
     </div>
   );
 };

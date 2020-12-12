@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as Map } from './map';
+export { default as LinesList } from './lines-list';
