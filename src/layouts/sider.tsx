@@ -4,7 +4,7 @@ import { LinesList } from '@/components';
 import './sider.less';
 
 const Sider: FC = () => (
-  <Layout.Sider className="layout-sider">
+  <Layout.Sider className="layout-sider" width={300}>
     <LinesList />
   </Layout.Sider>
 );

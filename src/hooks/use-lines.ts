@@ -1,55 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getLines } from '@/api';
+import { Line } from '@/types';
 import { useState } from 'react';
 import useSWR from 'swr';
-
-type Mode = 'bus' | 'tube';
-type Direction = 'inbound' | 'outbound';
-type ServiceTypeName = 'regular' | 'night';
-type ServiceTypeDetalleName = 'Regular' | 'Night';
-
-interface Tfl {
-  $type: string;
-}
-
-interface TflRoute extends Tfl {
-  destination: string;
-  destinationName: string;
-  direction: Direction;
-  name: string;
-  originationName: string;
-  originator: string;
-  serviceType: ServiceTypeName;
-  validFrom: string;
-  validTo: string;
-}
-
-type Route = Omit<TflRoute, '$type'>;
-
-interface TflServiceTypeDetalle extends Tfl {
-  name: ServiceTypeDetalleName;
-  uri: string;
-}
-
-type ServiceTypeDetalle = Omit<TflServiceTypeDetalle, '$type'>;
-
-interface TflLine extends Tfl {
-  created: string;
-  crowding: Tfl;
-  disruptions: any[];
-  id: string;
-  lineStatuses: any[];
-  modeName: Mode;
-  modified: string;
-  name: string;
-  routeSections: Route[];
-  serviceTypes: ServiceTypeDetalle[];
-}
-
-type Line = Omit<
-  TflLine,
-  '$type' | 'crowding' | 'disruptions' | 'lineStatuses'
->;
 
 const useLines = (): { lines: Line[]; error: any; loading: boolean } => {
   const [lines, setLines] = useState<Line[]>([]);

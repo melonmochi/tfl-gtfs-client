@@ -34,6 +34,7 @@ module.exports = {
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'react/jsx-wrap-multilines': 'off',
     'react/react-in-jsx-scope': 'off',
   },
   settings: {

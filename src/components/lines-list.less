@@ -7,4 +7,25 @@
 .lines-list {
   flex: 1 1 auto;
   margin: 0 10px 0 10px;
+
+  .item-meta {
+    .ant-list-item-meta-avatar {
+      margin: auto 20px auto 0;
+    }
+    .ant-list-item-meta-title {
+      display: inline-flex;
+
+      .line-name {
+        width: 120px;
+        margin-right: 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .service-type-tag {
+        display: inline-flex;
+      }
+    }
+  }
 }

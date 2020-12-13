@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
+export * from './colours';
+export * from './strings';
 export { default as tfl } from './tfl';
