@@ -9,7 +9,10 @@ export const getLineCode = (lineId: string): string => {
 };
 
 export const getRouteSectionDesc = (routeSections: Route[]): string => {
-  const route = routeSections[0];
-  const points = [route.originationName, route.destinationName];
-  return points.join(routeSections.length === 1 ? ' → ' : ' ⇄ ');
+  if (routeSections.length) {
+    const route = routeSections[0];
+    const points = [route.originationName, route.destinationName];
+    return points.join(routeSections.length === 1 ? ' → ' : ' ⇄ ');
+  }
+  return 'Route sections are not defined yet';
 };

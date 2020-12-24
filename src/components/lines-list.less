@@ -1,3 +1,5 @@
+@import '~antd/lib/style/themes/default.less';
+
 .lines-input {
   flex: 0 1 auto;
   width: auto;
@@ -5,27 +7,50 @@
 }
 
 .lines-list {
-  flex: 1 1 auto;
+  flex: 1;
   margin: 0 10px 0 10px;
+  overflow: auto;
 
-  .item-meta {
-    .ant-list-item-meta-avatar {
-      margin: auto 20px auto 0;
+  .ant-list-item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    content: '';
+  }
+
+  .line-item {
+    .ant-list-item:hover {
+      background-color: @item-hover-bg;
     }
-    .ant-list-item-meta-title {
+  }
+
+  .seleted-line-item {
+    .ant-list-item {
+      background-color: @primary-1;
+    }
+  }
+}
+
+.item-meta {
+  .ant-list-item-meta-avatar {
+    margin: auto 20px auto 5px;
+  }
+  .ant-list-item-meta-title {
+    display: inline-flex;
+
+    .line-name {
+      width: 120px;
+      margin-right: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .service-type-tag {
       display: inline-flex;
-
-      .line-name {
-        width: 120px;
-        margin-right: 10px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-
-      .service-type-tag {
-        display: inline-flex;
-      }
     }
   }
 }
